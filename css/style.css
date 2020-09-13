@@ -24,11 +24,22 @@ section {
 }
 
 header {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   height: 80px;
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px 10vw;
+  transition: all 0.3s ease;
+}
+
+.fixed-nav {
+  background: #ebf4fa;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  z-index: 20;
 }
 
 .nav-links {
@@ -49,11 +60,15 @@ header {
   display: none;
 }
 
-/* Home Section */
-
-#home-section {
-  margin-top: 0;
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  display: none;
 }
+
+/* Home Section */
 
 .home-text {
   width: 40vw;
@@ -284,6 +299,7 @@ header {
   font-size: 18px;
   line-height: 180%;
   color: #4b5d68;
+  text-align: justify;
 }
 
 .buttons {
@@ -410,11 +426,20 @@ footer {
     display: flex;
     position: fixed;
     top: 30px;
-    right: 20px;
+    right: 10vw;
     width: 30px;
     height: 25px;
     cursor: pointer;
     z-index: 3;
+  }
+
+  #back-to-top {
+    width: 48px;
+    bottom: 30px;
+  }
+
+  .fixed-nav {
+    background: white;
   }
 
   #home-section,

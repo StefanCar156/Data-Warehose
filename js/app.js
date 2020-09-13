@@ -64,3 +64,32 @@ navLink.forEach((link) => {
     navbar.classList.remove("nav-links-active");
   });
 });
+
+// Back To Top
+const backToTopBtn = document.querySelector("#back-to-top");
+
+function showBackToTopBtn() {
+  if (window.scrollY < 700) {
+    backToTopBtn.style.display = "none";
+  } else {
+    backToTopBtn.style.display = "inline";
+  }
+}
+
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo(0, 0);
+});
+
+// Fixed Nav
+function fixedNav() {
+  const header = document.querySelector("header");
+
+  window.scrollY > 0
+    ? header.classList.add("fixed-nav")
+    : header.classList.remove("fixed-nav");
+}
+
+window.addEventListener("scroll", () => {
+  showBackToTopBtn();
+  fixedNav();
+});
