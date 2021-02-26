@@ -25,21 +25,35 @@ section {
 
 header {
   width: 100%;
-  margin: 0 auto;
   height: 80px;
+  background: #ebf4fa;
   display: flex;
   align-items: center;
   position: fixed;
   top: 0;
   left: 0;
-  padding: 20px 10vw;
-  transition: all 0.3s ease;
+  transform: translateY(-100%);
+  transition: all 0.2s ease-in;
 }
-
+.navbar {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
 .fixed-nav {
-  background: #ebf4fa;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   z-index: 20;
+  transform: translateY(0);
+}
+@media navAnimation {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .nav-links {
@@ -56,7 +70,7 @@ header {
   font-family: "Poppins", sans-serif;
 }
 
-.menu-icon {
+.menu-btn {
   display: none;
 }
 
@@ -250,6 +264,7 @@ header {
 .testimonials-container {
   display: flex;
   width: 80vw;
+  position: relative;
 }
 
 .testimonials-component {
@@ -304,19 +319,18 @@ header {
 
 .buttons {
   display: flex;
-  align-items: center;
-  width: 120px;
   justify-content: space-between;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 50px;
+  width: 160px;
+  margin: 30px auto;
 }
 
-.buttons img {
-  width: 48px;
+.buttons button {
+  width: fit-content;
   cursor: pointer;
   user-select: none;
+  background: transparent;
+  border: none;
+  outline: none;
 }
 
 /* Footer */
@@ -393,7 +407,12 @@ footer {
   margin-right: 10px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .nav-links {
     flex-direction: column;
     position: fixed;
@@ -422,15 +441,21 @@ footer {
     z-index: 2;
   }
 
-  .menu-icon {
-    display: flex;
-    position: fixed;
-    top: 30px;
-    right: 10vw;
-    width: 30px;
+  .menu-btn {
+    display: inline;
+    background: transparent;
+    border: none;
+    outline: none;
     height: 25px;
     cursor: pointer;
     z-index: 3;
+  }
+
+  .menu-btn img {
+    width: 30px;
+    height: 25px;
+    pointer-events: none;
+    user-select: none;
   }
 
   #back-to-top {
@@ -520,10 +545,6 @@ footer {
   .user-name,
   .user-occupation {
     justify-content: center;
-  }
-
-  .buttons {
-    margin-top: -60px;
   }
 
   .footer-container {
